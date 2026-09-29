@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>333 FM</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <h1>333 FM</h1>
+
+        <nav>
+            <a href="#">Início</a>
+            <a href="#musicas">Músicas</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="perfil-artista">
+
+            <div class="foto-artista">
+
+                <img
+                    src="./foto matue.jpg"
+                    alt="Matuê"
+                >
+
+            </div>
+
+            <div class="informacoes-artista">
+
+                <p>ARTISTA</p>
+
+                <h2>Matuê</h2>
+
+                <span>Trap • Brasil</span>
+
+                <p class="aviso-artista">
+                     Catálogo exclusivo de músicas do Matuê
+                </p>
+
+                <div class="dados-artista">
+
+                    <div>
+                        <strong id="quantidade-musicas">0</strong>
+                        <small>músicas</small>
+                    </div>
+
+                    <div>
+                        <strong>333</strong>
+                        <small>FM</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="musicas" id="musicas">
+
+            <div class="titulo-musicas">
+
+                <div>
+                    <h2>Músicas</h2>
+                    <p>Seleção de músicas do Matuê</p>
+                </div>
+
+                <div class="busca">
+
+                    <input
+                        type="text"
+                        id="campo-busca"
+                        placeholder="Buscar música..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="lista-musicas"
+                id="lista-musicas"
+            >
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="player">
+
+        <div class="musica-atual">
+
+            <img
+                id="capa-atual"
+                src=""
+                alt="Capa da música atual"
+            >
+
+            <div>
+
+                <h3 id="nome-atual">
+                    Nenhuma música
+                </h3>
+
+                <p id="artista-atual">
+                    Matuê
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="controles">
+
+            <button id="anterior">
+                ⏮
+            </button>
+
+            <button id="play">
+                ▶
+            </button>
+
+            <button id="proxima">
+                ⏭
+            </button>
+
+        </div>
+
+
+        <div class="progresso">
+
+            <span id="tempo-atual">
+                0:00
+            </span>
+
+            <input
+                type="range"
+                id="barra-progresso"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+            <span id="duracao">
+                0:00
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <audio id="audio"></audio>
+
+
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>

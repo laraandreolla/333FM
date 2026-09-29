@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>333 FM - Administração</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <h1>333 FM</h1>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="admin.html">Administração</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="cabecalho-admin">
+
+            <div>
+
+                <p>PAINEL DE ADMINISTRAÇÃO</p>
+
+                <h2>Gerenciar músicas</h2>
+
+                <span>
+                    Catálogo exclusivo de músicas do Matuê
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <section class="formulario">
+
+            <h2>Adicionar música</h2>
+
+            <form id="form-musica">
+
+                <div class="campo">
+
+                    <label for="titulo">
+                        Título da música
+                    </label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        placeholder="Ex: Anos Luz"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="artista">
+                        Artista
+                    </label>
+
+                    <input
+                        type="text"
+                        id="artista"
+                        value="Matuê"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="estilo">
+                        Estilo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="estilo"
+                        placeholder="Ex: Trap"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="capa">
+                        Capa da música
+                    </label>
+
+                    <input
+                        type="file"
+                        id="capa"
+                        accept="image/*"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="audio">
+                        Arquivo MP3
+                    </label>
+
+                    <input
+                        type="file"
+                        id="audio"
+                        accept="audio/mpeg,.mp3"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    ADICIONAR MÚSICA
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="gerenciar">
+
+            <div class="titulo-gerenciar">
+
+                <div>
+
+                    <h2>Músicas cadastradas</h2>
+
+                    <p>
+                        Edite ou exclua músicas do catálogo.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tabela-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Capa</th>
+
+                            <th>Título</th>
+
+                            <th>Artista</th>
+
+                            <th>Estilo</th>
+
+                            <th>Duração</th>
+
+                            <th>Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="lista-musicas">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        type="module"
+        src="admin.js">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+    min-height: 100vh;
+}
+
+.header {
+    background: #181818;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #292929;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.header nav {
+    display: flex;
+    gap: 25px;
+}
+
+.header nav a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.header nav a:hover {
+    color: white;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 25px;
+}
+
+.cabecalho-admin {
+    background: linear-gradient(135deg, #333333, #151515);
+    padding: 35px;
+    border-radius: 15px;
+    margin-bottom: 35px;
+}
+
+.cabecalho-admin p {
+    color: #b3b3b3;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.cabecalho-admin h2 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.cabecalho-admin span {
+    color: #999;
+    font-size: 15px;
+}
+
+.formulario {
+    background: #181818;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 35px;
+}
+
+.formulario h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+#form-musica {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo label {
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 13px 15px;
+    background: #242424;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.campo input:focus {
+    border-color: #666;
+}
+
+.campo input::placeholder {
+    color: #777;
+}
+
+.campo input[type="file"] {
+    cursor: pointer;
+}
+
+#form-musica button {
+    grid-column: 1 / -1;
+    padding: 14px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #121212;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#form-musica button:hover {
+    transform: scale(1.01);
+    background: #e5e5e5;
+}
+
+.gerenciar {
+    background: #181818;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.titulo-gerenciar {
+    margin-bottom: 25px;
+}
+
+.titulo-gerenciar h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.titulo-gerenciar p {
+    color: #888;
+    font-size: 14px;
+}
+
+.tabela-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+thead {
+    background: #242424;
+}
+
+th {
+    color: #b3b3b3;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    border-top: 1px solid #292929;
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #202020;
+}
+
+td img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.btn-editar,
+.btn-excluir {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.btn-editar {
+    background: #333;
+    color: white;
+}
+
+.btn-editar:hover {
+    background: #444;
+}
+
+.btn-excluir {
+    background: #292929;
+    color: #ff6b6b;
+}
+
+.btn-excluir:hover {
+    background: #3a3a3a;
+}
+
+@media (max-width: 700px) {
+
+    .header {
+        padding: 18px 20px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header nav {
+        gap: 15px;
+    }
+
+    .header nav a {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .cabecalho-admin {
+        padding: 25px;
+    }
+
+    .cabecalho-admin h2 {
+        font-size: 30px;
+    }
+
+    .formulario,
+    .gerenciar {
+        padding: 20px;
+    }
+
+    #form-musica {
+        grid-template-columns: 1fr;
+    }
+
+    #form-musica button {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .header nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cabecalho-admin h2 {
+        font-size: 26px;
+    }
+
+    .formulario h2,
+    .titulo-gerenciar h2 {
+        font-size: 21px;
+    }
+
+    .formulario,
+    .gerenciar {
+        padding: 17px;
+    }
+}
