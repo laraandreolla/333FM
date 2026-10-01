@@ -80,36 +80,24 @@ function descobrirDuracao(arquivo) {
 form.addEventListener("submit", async (event) => {
 
     event.preventDefault();
-
-
     const tituloValor = titulo.value.trim();
-
     const artistaValor = artista.value.trim();
-
     const estiloValor = estilo.value.trim();
-
     const capaArquivo = capa.files[0];
-
     const audioArquivo = audio.files[0];
 
 
     if (!capaArquivo || !audioArquivo) {
-
         alert("Selecione a capa e o arquivo MP3.");
-
         return;
-
     }
 
 
     try {
-
         const capaBase64 =
             await converterParaBase64(capaArquivo);
-
         const audioBase64 =
             await converterParaBase64(audioArquivo);
-
         const duracao =
             await descobrirDuracao(audioArquivo);
 
