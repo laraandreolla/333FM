@@ -1,4 +1,9 @@
-import { salvarMusica } from "./crud.js";
+import {
+    salvarMusica,
+    buscarMusicas,
+    editarMusica,
+    excluirMusica
+} from "./crud.js";
 
 
 const form = document.getElementById("form-musica");
@@ -9,6 +14,8 @@ const estilo = document.getElementById("estilo");
 
 const capa = document.getElementById("capa");
 const audio = document.getElementById("audio");
+
+const listaMusicas = document.getElementById("lista-musicas");
 
 
 function converterParaBase64(arquivo) {
@@ -77,27 +84,189 @@ function descobrirDuracao(arquivo) {
 }
 
 
-form.addEventListener("submit", async (event) => {
+function mostrarMusicas(musicas) {
 
-    event.preventDefault();
-    const tituloValor = titulo.value.trim();
-    const artistaValor = artista.value.trim();
-    const estiloValor = estilo.value.trim();
-    const capaArquivo = capa.files[0];
-    const audioArquivo = audio.files[0];
+    listaMusicas.innerHTML = "";
 
 
-    if (!capaArquivo || !audioArquivo) {
-        alert("Selecione a capa e o arquivo MP3.");
+    musicas.forEach((musica) => {
+
+        const linha = document.createElement("tr");
+
+
+        linha.innerHTML = `
+
+            <td>
+                <img
+                    src="${musica.capa}"
+                    alt="${musica.titulo}"
+                >
+            </td>
+
+            <td>${musica.titulo}</td>
+
+            <td>${musica.artista}</td>
+
+            <td>${musica.estilo}</td>
+
+            <td>${musica.duracao}</td>
+
+            <td>
+
+                <button
+                    class="btn-editar"
+                    data-id="${musica.id}"
+                >
+                    Editar
+                </button>
+
+                <button
+                    class="btn-excluir"
+                    data-id="${musica.id}"
+                >
+                    Excluir
+                </button>
+
+            </td>
+
+        `;
+
+
+        const botaoEditar =
+            linha.querySelector(".btn-editar");
+
+        const botaoExcluir =
+            linha.querySelector(".btn-excluir");
+
+
+        botaoEditar.addEventListener("click", () => {
+
+            editar(musica);
+
+        });
+
+
+        botaoExcluir.addEventListener("click", () => {
+
+            excluir(musica);
+
+        });
+
+
+        listaMusicas.appendChild(linha);
+
+    });
+
+}
+
+
+async function editar(musica) {
+
+    const novoTitulo = prompt(
+        "Digite o novo título:",
+        musica.titulo
+    );
+
+
+    if (novoTitulo === null) {
+        return;
+    }
+
+
+    const novoEstilo = prompt(
+        "Digite o novo estilo:",
+        musica.estilo
+    );
+
+
+    if (novoEstilo === null) {
         return;
     }
 
 
     try {
+
+        await editarMusica(
+            musica.id,
+            novoTitulo.trim(),
+            novoEstilo.trim()
+        );
+
+        alert("Música editada com sucesso!");
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert("Não foi possível editar a música.");
+
+    }
+
+}
+
+
+async function excluir(musica) {
+
+    const confirmar = confirm(
+        `Deseja excluir "${musica.titulo}"?`
+    );
+
+
+    if (!confirmar) {
+        return;
+    }
+
+
+    try {
+
+        await excluirMusica(musica.id);
+
+        alert("Música excluída com sucesso!");
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        alert("Não foi possível excluir a música.");
+
+    }
+
+}
+
+
+form.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+
+    const tituloValor = titulo.value.trim();
+
+    const artistaValor = artista.value.trim();
+
+    const estiloValor = estilo.value.trim();
+
+    const capaArquivo = capa.files[0];
+
+    const audioArquivo = audio.files[0];
+
+
+    if (!capaArquivo || !audioArquivo) {
+
+        alert("Selecione a capa e o arquivo MP3.");
+
+        return;
+
+    }
+
+
+    try {
+
         const capaBase64 =
             await converterParaBase64(capaArquivo);
+
         const audioBase64 =
             await converterParaBase64(audioArquivo);
+
         const duracao =
             await descobrirDuracao(audioArquivo);
 
@@ -127,5 +296,12 @@ form.addEventListener("submit", async (event) => {
         alert("Não foi possível adicionar a música.");
 
     }
+
+});
+
+
+buscarMusicas((musicas) => {
+
+    mostrarMusicas(musicas);
 
 });
