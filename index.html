@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>333 FM</title>
+
     <link rel="icon" type="image/png" href="./3.png">
+    <link rel="manifest" href="./manifest.json">
+
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <header class="header">
@@ -171,6 +173,16 @@
 
 
     <script type="module" src="main.js"></script>
+
+    <script>
+
+    if ("serviceWorker" in navigator) {
+
+        navigator.serviceWorker.register("./service-worker.js");
+
+    }
+
+    </script>
 
 </body>
 

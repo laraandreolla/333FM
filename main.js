@@ -3,7 +3,7 @@ import {
     onValue
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
 
-import { database } from "./firebaseConfig.js";
+import { database } from "../firebaseConfig.js";
 
 
 const listaMusicas = document.getElementById("lista-musicas");

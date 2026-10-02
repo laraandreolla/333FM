@@ -1,0 +1,15 @@
+{
+    "name": "333 FM",
+    "short_name": "333 FM",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#121212",
+    "icons": [
+        {
+            "src": "./3.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
