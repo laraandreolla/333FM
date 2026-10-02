@@ -10,17 +10,11 @@ const arquivos = [
 
 
 self.addEventListener("install", (event) => {
-
     event.waitUntil(
-
-        caches.open("333-fm-v1").then((cache) => {
-
+        caches.open("333-fm-v2").then((cache) => {
             return cache.addAll(arquivos);
-
         })
-
     );
-
 });
 
 
